@@ -4,7 +4,13 @@ const getScores = async (req, res, next) => {
 	try {
 		const scores = await Score.find();
 
-		res.status(200).send({ scores });
+		res
+			.header(
+				'Access-Control-Allow-Origin',
+				'https://adampaulsackfield.github.io/adampaulsackfield.github.io-snake/'
+			)
+			.status(200)
+			.send({ scores });
 	} catch (err) {
 		console.log(err);
 		next();
