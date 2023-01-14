@@ -28,6 +28,7 @@ server.use(
 		origin: [
 			'http://localhost',
 			'http://localhost:5501',
+			'https://adamsackfield.uk',
 			'https://adampaulsackfield.github.io/adampaulsackfield.github.io-snake',
 		],
 	})
