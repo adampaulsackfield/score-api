@@ -4,10 +4,7 @@ const getScores = async (req, res, next) => {
 	try {
 		const scores = await Score.find();
 
-		res
-			.set('Access-Control-Allow-Origin', 'https://snake.adamsackfield.uk')
-			.status(200)
-			.send({ scores });
+		res.status(200).send({ scores });
 	} catch (err) {
 		console.log(err);
 		next();
@@ -27,10 +24,7 @@ const addScore = async (req, res, next) => {
 
 		const savedScore = await Score.create(newScore);
 
-		res
-			.set('Access-Control-Allow-Origin', 'https://snake.adamsackfield.uk')
-			.status(201)
-			.send({ score: savedScore });
+		res.status(201).send({ score: savedScore });
 	} catch (err) {
 		console.log(err);
 		next();
