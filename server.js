@@ -11,14 +11,13 @@ connectDB();
 const server = express();
 
 server.use(express.json());
-											
 
 var corsOptions = {
-  origin: 'https://snake.adamsackfield.uk',
-  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-}
+	origin: 'https://snake.adamsackfield.uk',
+	optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+};
 
-server.use(cors());
+server.use(cors(corsOptions));
 
 server.use('/api', routes);
 
@@ -29,6 +28,5 @@ server.get('/', (req, res) => {
 server.all('*', (req, res) => {
 	res.status(404).send({ message: 'Path not found' });
 });
-
 
 server.listen(PORT);
