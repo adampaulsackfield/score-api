@@ -12,12 +12,7 @@ const server = express();
 
 server.use(express.json());
 
-var corsOptions = {
-	origin: 'https://snake.adamsackfield.uk',
-	optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
-};
-
-server.use(cors(corsOptions));
+server.use(cors());
 
 server.use('/api', routes);
 
