@@ -11,7 +11,14 @@ connectDB();
 const server = express();
 
 server.use(express.json());
-// server.use(cors());
+											
+
+var corsOptions = {
+  origin: 'https://snake.adamsackfield.uk',
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
+
+server.use(cors());
 
 server.use('/api', routes);
 
@@ -23,15 +30,5 @@ server.all('*', (req, res) => {
 	res.status(404).send({ message: 'Path not found' });
 });
 
-server.use(
-	cors({
-		origin: [
-			'http://localhost',
-			'http://localhost:5501',
-			'https://adamsackfield.uk',
-			'https://adampaulsackfield.github.io/adampaulsackfield.github.io-snake',
-		],
-	})
-);
 
 server.listen(PORT);

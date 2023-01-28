@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 
 const connectDB = () => {
 	return mongoose
-		.connect(process.env.DB_URI)
+		.connect(`${process.env.DB_URI}?authSource=admin`)
 		.then(() => {
 			console.log('connected');
 		})

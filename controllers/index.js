@@ -4,7 +4,10 @@ const getScores = async (req, res, next) => {
 	try {
 		const scores = await Score.find();
 
-		res.set('Access-Control-Allow-Origin', '*').status(200).send({ scores });
+		res
+			.set('Access-Control-Allow-Origin', 'https://snake.adamsackfield.uk')
+			.status(200)
+			.send({ scores });
 	} catch (err) {
 		console.log(err);
 		next();
@@ -12,7 +15,6 @@ const getScores = async (req, res, next) => {
 };
 
 const addScore = async (req, res, next) => {
-	console.log(req.body);
 	try {
 		if (!req.body.data.name || !req.body.data.score) {
 			throw new Error('missing required fields');
@@ -26,7 +28,7 @@ const addScore = async (req, res, next) => {
 		const savedScore = await Score.create(newScore);
 
 		res
-			.set('Access-Control-Allow-Origin', '*')
+			.set('Access-Control-Allow-Origin', 'https://snake.adamsackfield.uk')
 			.status(201)
 			.send({ score: savedScore });
 	} catch (err) {
