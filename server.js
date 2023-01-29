@@ -14,7 +14,7 @@ const server = express();
 server.use(express.json());
 
 const corsOptions = {
-	origin: 'http://example.com',
+	origin: 'https://snake.adamsackfield.uk',
 	optionsSuccessStatus: 200,
 };
 
