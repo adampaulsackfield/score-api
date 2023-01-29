@@ -27,7 +27,7 @@ const corsOptions = {
 	},
 };
 
-server.use(cors(corsOptions));
+server.use(cors());
 
 server.use('/api', routes);
 
@@ -39,4 +39,6 @@ server.all('*', (req, res) => {
 	res.status(404).send({ message: 'Path not found' });
 });
 
-server.listen(PORT);
+server.listen(PORT, (err) => {
+	console.log("Server listening on Port", PORT);
+});
