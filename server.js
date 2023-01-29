@@ -18,7 +18,9 @@ const corsOptions = {
 	optionsSuccessStatus: 200,
 };
 
-server.use(cors(corsOptions));
+server.use(cors({
+	origin: '*'
+}));
 
 server.use('/api', routes);
 
