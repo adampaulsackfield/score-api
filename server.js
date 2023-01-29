@@ -5,6 +5,7 @@ const connectDB = require('./db/connections');
 const routes = require('./routes');
 
 const PORT = process.env.PORT || 5550;
+const HOSTNAME = 'localhost';
 
 connectDB();
 
@@ -40,5 +41,5 @@ server.all('*', (req, res) => {
 });
 
 server.listen(PORT, (err) => {
-	console.log("Server listening on Port", PORT);
+	console.log(`Server is running at http://${HOSTNAME}:${PORT}`);
 });
