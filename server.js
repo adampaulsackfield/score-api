@@ -13,19 +13,9 @@ const server = express();
 
 server.use(express.json());
 
-const whitelist = [
-	'https://snake.adamsackfield.uk',
-	'http://snake.adamsackfield.uk',
-];
-
 const corsOptions = {
-	origin: (origin, cb) => {
-		if (whitelist.indexOf(origin) !== -1) {
-			cb(null, true);
-		} else {
-			cb(new Error('Not allowed by CORS'));
-		}
-	},
+	origin: 'http://example.com',
+	optionsSuccessStatus: 200,
 };
 
 server.use(cors(corsOptions));
