@@ -28,7 +28,7 @@ const corsOptions = {
 	},
 };
 
-server.use(cors());
+server.use(cors(corsOptions));
 
 server.use('/api', routes);
 
