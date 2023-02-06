@@ -32,8 +32,11 @@ const addScore = async (req, res, next) => {
 			.status(201)
 			.send({ score: savedScore });
 	} catch (err) {
-		console.log(err);
-		next();
+		if (err.message) {
+			res.status(400).send({ message: err.message });
+		} else {
+			res.status(500).send({ message: 'server error' });
+		}
 	}
 };
 
